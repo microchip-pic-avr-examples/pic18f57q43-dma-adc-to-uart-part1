@@ -44,7 +44,7 @@
         <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="PIC18F-Q_DFP" vendor="Microchip" version="1.4.109"/>
+        <pack name="PIC18F-Q_DFP" vendor="Microchip" version="1.3.89"/>
       </packs>
       <compileType>
         <linkerTool>
