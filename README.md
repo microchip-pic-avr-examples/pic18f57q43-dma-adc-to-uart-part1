@@ -1,19 +1,20 @@
-<!-- Please do not change this html logo with link -->
-
-<a href="https://www.microchip.com" rel="nofollow"><img src="images/Microchip.png" alt="MCHP" width="300"/></a>
+[![MCHP](https://cldup.com/U0qhLwBijF.png)](https://www.microchip.com)
 
 
 
 # Direct Memory Access on PIC MCUs [Part 1]: 
-This is part 1 of 2 of an example showing how to set up [Direct Memory Access (DMA)](https://www.microchip.com/design-centers/8-bit/peripherals/core-independent/direct-memory-access?utm_campaign=PIC18FQ43&utm_source=GitHub&utm_medium=embeddedLink&utm_term=&utm_content=pic18f57q43-dma-adc-to-uart-part1-MMTCha) using the [Microchip Code Configurator (MCC)](https://www.microchip.com/Developmenttools/ProductDetails/DM164150?utm_campaign=PIC18FQ43&utm_source=GitHub&utm_medium=embeddedLink&utm_term=&utm_content=pic18f57q43-dma-adc-to-uart-part1-MMTCha) on the [PIC18F57Q43 Curiosity Nano](https://www.microchip.com/design-centers/8-bit/pic-mcus/device-selection/pic18f-q10-product-family?utm_campaign=PIC18FQ43&utm_source=GitHub&utm_medium=embeddedLink&utm_term=&utm_content=pic18f57q43-dma-adc-to-uart-part1-MMTCha) to transfer an Analog to Digital (ADC) conversion to a UART TX buffer with **zero lines of code and zero CPU utilization** using DMA.
+This is **part 1 of 2** of an example showing how to set up [Direct Memory Access (DMA)](https://www.microchip.com/design-centers/8-bit/peripherals/core-independent/direct-memory-access?utm_campaign=PIC18FQ43&utm_source=GitHub&utm_medium=embeddedLink&utm_term=&utm_content=pic18f57q43-dma-adc-to-uart-part1-MMTCha) using the [Microchip Code Configurator (MCC)](https://www.microchip.com/Developmenttools/ProductDetails/DM164150?utm_campaign=PIC18FQ43&utm_source=GitHub&utm_medium=embeddedLink&utm_term=&utm_content=pic18f57q43-dma-adc-to-uart-part1-MMTCha) on the [PIC18F57Q43 Curiosity Nano](https://www.microchip.com/design-centers/8-bit/pic-mcus/device-selection/pic18f-q10-product-family?utm_campaign=PIC18FQ43&utm_source=GitHub&utm_medium=embeddedLink&utm_term=&utm_content=pic18f57q43-dma-adc-to-uart-part1-MMTCha) to transfer an Analog to Digital (ADC) conversion to a UART TX buffer with **zero lines of code and zero CPU utilization** using DMA.
 
 
 ![](images/part1-gif.gif)
 
 
-Part 2 covers how to set up the second device that will similarly utilize DMA to transfer the contents of the received message in the UART RX buffer to a PWM module that will vary the brightness of the LED.
+[**Part 2**](https://github.com/microchip-pic-avr-examples/pic18f57q43-dma-uart-to-pwm-part2) covers how to set up the second device that utilizes DMA to transfer the contents of the received message in the UART RX buffer to a PWM module that will vary the brightness of an LED.
 
-Table of Contents
+![](images\system-architecture.JPG)
+
+
+## Table of Contents
   - [Related Documentation](#related-documentation)
   - [Software Used](#software-used)
   - [Hardware Used](#hardware-used)
@@ -22,30 +23,36 @@ Table of Contents
   - [Summary](#summary)
   - [Walkthrough](#walkthrough)
 
+
 This example is extendable to the entire PIC18F Q43 family, as well as other 8-bit PIC devices with the DMA feature (ex. PIC18F K42).
 
 The Timer (TMR0), Analog to Digital Converter with Computation (ADCC), and Universal Asynchronous Receiver Transmitter (UART3) and DMA on-chip peripherals are all used in this project (part1). 
 
-This example is covered in video form here --LINK--.
+**This example is covered in a video format** [**linked here**](https://www.youtube.com/watch?v=Wz7gt11gpSw&t=1s).
 
-## Related Documentation
-- [TB3242: Configuring the DMA Peripheral](https://ww1.microchip.com/downloads/en/Appnotes/90003242A.pdf)
-- [TB3164: Direct Memory Access on 8-bit PIC® Microcontrollers](http://ww1.microchip.com/downloads/en/AppNotes/TB3164-Direct%20Memory-Access-on-8-bit-PIC-MCU-DS90003164B.pdf)
-- [AN3312: Arbitrary Waveform Generator Using DAC and DMA](https://www.microchip.com/00003312) 
-- [AN3382: ADCC Context Switching Using DMA](https://microchip.com/00003382)
-- [AN3398: Building Hardware State Machines with CIPs](https://www.microchip.com/00003398)
+## Related Documentation and Resouces
+- **Videos**:
+  - [DMA Overview on PIC® MCUs](https://www.youtube.com/watch?v=Lpru4TY-aHE)
+  - [How to use DMA on 8 bit PIC MCUs](https://www.youtube.com/watch?v=Wz7gt11gpSw)
+- **Tech Briefs** - Written briefs covering fundamentals
+  - [TB3242: Configuring the DMA Peripheral](https://ww1.microchip.com/downloads/en/Appnotes/90003242A.pdf)
+  - [TB3164: Direct Memory Access on 8-bit PIC® Microcontrollers](http://ww1.microchip.com/downloads/en/AppNotes/TB3164-Direct%20Memory-Access-on-8-bit-PIC-MCU-DS90003164B.pdf)
+- **Application Notes** - Real-world use-cases
+  - [AN3312: Arbitrary Waveform Generator Using DAC and DMA](https://www.microchip.com/00003312) 
+  - [AN3382: ADCC Context Switching Using DMA](https://microchip.com/00003382)
+  - [AN3398: Building Hardware State Machines with CIPs](https://www.microchip.com/00003398)
 
 ## Software Used
 All software used in this example is listed here:
-- MPLAB® X IDE 5.30 or newer - [link](https://www.microchip.com/mplab/mplab-x-ide?utm_campaign=PIC18FQ43&utm_source=GitHub&utm_medium=embeddedLink&utm_term=&utm_content=pic18f57q43-dma-adc-to-uart-part1-MMTCha)
-- MPLAB® XC8 2.10 or a newer compiler - [link](https://www.microchip.com/mplab/compilers?utm_campaign=PIC18FQ43&utm_source=GitHub&utm_medium=embeddedLink&utm_term=&utm_content=pic18f57q43-dma-adc-to-uart-part1-MMTCha)
-- MPLAB® Code Configurator (MCC) 3.95.0 or newer - [link](https://www.microchip.com/mplab/mplab-code-configurator?utm_campaign=PIC18FQ43&utm_source=GitHub&utm_medium=embeddedLink&utm_term=&utm_content=pic18f57q43-dma-adc-to-uart-part1-MMTCha)
-- MPLAB® Code Configurator (MCC) Device Libraries PIC10 / PIC12 / PIC16 / PIC18 MCUs - [link](https://www.microchip.com/mplab/mplab-code-configurator?utm_campaign=PIC18FQ43&utm_source=GitHub&utm_medium=embeddedLink&utm_term=&utm_content=pic18f57q43-dma-adc-to-uart-part1-MMTCha)
-- Microchip PIC18F-Q Series Device Support (1.4.109) or newer - [link](https://packs.download.microchip.com/?utm_campaign=PIC18FQ43&utm_source=GitHub&utm_medium=embeddedLink&utm_term=&utm_content=pic18f57q43-dma-adc-to-uart-part1-MMTCha)
+- [MPLAB® X IDE 5.30](https://www.microchip.com/mplab/mplab-x-ide?utm_campaign=PIC18FQ43&utm_source=GitHub&utm_medium=embeddedLink&utm_term=&utm_content=pic18f57q43-dma-adc-to-uart-part1-MMTCha) or newer
+- [MPLAB® XC8 2.10](https://www.microchip.com/mplab/compilers?utm_campaign=PIC18FQ43&utm_source=GitHub&utm_medium=embeddedLink&utm_term=&utm_content=pic18f57q43-dma-adc-to-uart-part1-MMTCha) or newer
+- [MPLAB® Code Configurator (MCC) 3.95.0](https://www.microchip.com/mplab/mplab-code-configurator?utm_campaign=PIC18FQ43&utm_source=GitHub&utm_medium=embeddedLink&utm_term=&utm_content=pic18f57q43-dma-adc-to-uart-part1-MMTCha) or newer
+  - [MPLAB® Code Configurator (MCC) Device Libraries PIC10 / PIC12 / PIC16 / PIC18 MCUs](https://www.microchip.com/mplab/mplab-code-configurator?utm_campaign=PIC18FQ43&utm_source=GitHub&utm_medium=embeddedLink&utm_term=&utm_content=pic18f57q43-dma-adc-to-uart-part1-MMTCha)
+- [Microchip PIC18F-Q Series Device Support (1.4.109)](https://packs.download.microchip.com/?utm_campaign=PIC18FQ43&utm_source=GitHub&utm_medium=embeddedLink&utm_term=&utm_content=pic18f57q43-dma-adc-to-uart-part1-MMTCha) or newer
 
 ## Hardware Used
-- PIC18F47Q10 Curiosity Nano [(DM164150)](https://www.microchip.com/Developmenttools/ProductDetails/DM164150?utm_campaign=PIC18FQ43&utm_source=GitHub&utm_medium=embeddedLink&utm_term=&utm_content=pic18f57q43-dma-adc-to-uart-part1-MMTCha)
-  - NOTE: There is second one used in part 2 --LINK--
+- PIC18F57Q43 Curiosity Nano [(DM164150)](https://www.microchip.com/Developmenttools/ProductDetails/DM164150?utm_campaign=PIC18FQ43&utm_source=GitHub&utm_medium=embeddedLink&utm_term=&utm_content=pic18f57q43-dma-adc-to-uart-part1-MMTCha)
+  - NOTE: There is second one used in [**part 2**](https://github.com/microchip-pic-avr-examples/pic18f57q43-dma-uart-to-pwm-part2)
 - Potentiometer (x1)
 - **[Optional]** Curiosity Nano Base for Click boards™ [(AC164162)](https://www.microchip.com/Developmenttools/ProductDetails/AC164162?utm_campaign=PIC18FQ43&utm_source=GitHub&utm_medium=embeddedLink&utm_term=&utm_content=pic18f57q43-dma-adc-to-uart-part1-MMTCha) - this was only used in lieu of a breadboard.
 
@@ -53,6 +60,8 @@ All software used in this example is listed here:
 The hardware is setup as shown more closely in this video --LINK--. Below is a diagram where of the specific pins I used. You'll notice the Curiosity Nano Baseboard for clicks is missing from this diagram as they were really only used as breadboard-alternatives in this case.
 
 ![](images/hardware_setup.jpg)
+
+### Connections
 
 | Potentiometer | Q43 (part 1)      |               | Q43 (part 2)|
 |---------------|-------------------|---------------|-------------|
@@ -79,7 +88,7 @@ The goal here is to exemplify the usage of the GUI provided by MCC that will gen
 
 <!-- Summarize what the example has shown -->
 ## Walkthrough
-
+[Back to Table of Contents](#table-of-contents)
 <!-- Summarize what the example has shown -->
 ### Create New MPLAB X Project and Open MCC
 1. Open the MPLAB X IDE
@@ -175,4 +184,8 @@ The goal here is to exemplify the usage of the GUI provided by MCC that will gen
 
 ## Conclusion:
 
-You have finished part 1, now you can either check out the results by using a logic analyzer or oscilloscope or go ahead and check out part 2. --LINK--
+You have finished part 1, now you can either check out the results by using a logic analyzer, oscilloscope, or even a serial terminal like the Data Visualizer plugin or standalone application. Next, [**check out part 2**](https://github.com/microchip-pic-avr-examples/pic18f57q43-dma-uart-to-pwm-part2) to complete the application.
+
+![](images\system-architecture.JPG)
+
+[Back to Table of Contents](#table-of-contents)
