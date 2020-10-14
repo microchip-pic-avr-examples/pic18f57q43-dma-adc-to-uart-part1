@@ -155,15 +155,15 @@ The goal here is to exemplify the usage of the GUI provided by MCC that will gen
 
 7. In the **DMA Manager** window<br>
 
-![](images/config-dma-part1-1.jpg)<br>
+![](images/config-dma-part1-1.JPG) <br>
 
-![](images/config-dma-part1-2.jpg)<br>
+![](images/config-dma-part1-2.JPG) <br>
 
 **Zoomed in pictures and additional table below are included for clarity**<br>
 
-![](images/zoom-config-dma-part1-1.jpg)<br>
+![](images/zoom-config-dma-part1-1.JPG) <br>
 
-![](images/zoom-config-dma-part1-2.jpg)<br>
+![](images/zoom-config-dma-part1-2.JPG) <br>
 
 |     | Module | Region | SFR    | VarName | VarSize | Address | Mode      | Message Size | Start Trigger | Abort Trigger |
 |-----|--------|--------|--------|---------|---------|---------|-----------|--------------|---------------|---------------|
