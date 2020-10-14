@@ -153,14 +153,14 @@ The goal here is to exemplify the usage of the GUI provided by MCC that will gen
    
 ![](images/pin-manager-gridview-configure.jpg)
 
-7. In the **DMA Manager** window
-<br>
+7. In the **DMA Manager** window<br>
+
 ![](images/config-dma-part1-1.jpg)<br>
-<br>
+
 ![](images/config-dma-part1-2.jpg)<br>
 
-**Zoomed in pictures and additional table below are included for clarity**
-<br>
+**Zoomed in pictures and additional table below are included for clarity**<br>
+
 ![](images/zoom-config-dma-part1-1.jpg)<br>
 
 ![](images/zoom-config-dma-part1-2.jpg)<br>
@@ -170,7 +170,7 @@ The goal here is to exemplify the usage of the GUI provided by MCC that will gen
 | Src | ADCC   | SFR    | ADRESL | -       | -       | -       | increment | 2            | U3TX          | None          |
 | Dst | UART3  | SFR    | U3TXB  | -       | -       | -       | unchanged | 1            | U3TX          | None          |	
 
-8. Enable **DMA Channel1** 
+1. Enable **DMA Channel1** 
    1. What we just did:
       1. **ADCC** is the **source module** of the DMA channel
       2. **ADRESL** is the **SFR region** that we want data to be sourced from
@@ -179,8 +179,8 @@ The goal here is to exemplify the usage of the GUI provided by MCC that will gen
       5. Similarly, the UART TX Buffer is 1-byte, so we need to indicate that it can only handle one byte at a time. (i.e. message size = 1)
       6. Set the DMA **start trigger** to fire every time TX Buffer is empty (**U3TXB**). At this point you might wonder – why don’t I just set the trigger for every time there is an ADC conversion? You are certainly given the flexibility to do so by setting Start Trigger to AD. I encourage you to try and see what happens.
          1. **Spoiler Alert:** In many cases you will find that there is garbage data being transmitted from the UART. The reason for this is that depending on the relative speed of the UART, the DMA might be overwriting the buffer before the bits are shifting out. The DMA has no knowledge of this information, it’s simply a messenger.
-9. Hit **Generate Project** and
-10. Hit **Program the device**![](images/program-device-icon.png)
+2. Hit **Generate Project** and
+3.  Hit **Program the device**![](images/program-device-icon.png)
 
 ## Conclusion:
 
