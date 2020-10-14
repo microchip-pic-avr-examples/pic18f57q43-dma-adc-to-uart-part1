@@ -24,7 +24,7 @@ This is **part 1 of 2** of an example showing how to set up [Direct Memory Acces
   - [Walkthrough](#walkthrough)
 
 
-This example is extendable to the entire PIC18F Q43 family, as well as other 8-bit PIC devices with the DMA feature (ex. PIC18F K42).
+This example is extendable to the entire PIC18 Q43 family, as well as other 8-bit PIC devices with the DMA feature (ex. PIC18F K42).
 
 The Timer (TMR0), Analog to Digital Converter with Computation (ADCC), and Universal Asynchronous Receiver Transmitter (UART3) and DMA on-chip peripherals are all used in this project (part1). 
 
@@ -76,7 +76,7 @@ The hardware is setup as shown more closely [in this video](https://www.youtube.
 
 ## Summary
 
-As noted before - this is part 1 of 2 of an example showing how to set up [Direct Memory Access (DMA)](https://www.microchip.com/design-centers/8-bit/peripherals/core-independent/direct-memory-access?utm_campaign=PIC18FQ43&utm_source=GitHub&utm_medium=embeddedLink&utm_term=&utm_content=pic18f57q43-dma-adc-to-uart-part1-MMTCha) using the [Microchip Code Configurator (MCC)](https://www.microchip.com/mplab/mplab-code-configurator?utm_campaign=PIC18FQ43&utm_source=GitHub&utm_medium=embeddedLink&utm_term=&utm_content=pic18f57q43-dma-adc-to-uart-part1-MMTCha) on the [PIC18F57Q43 Curiosity Nano](https://www.microchip.com/Developmenttools/ProductDetails/DM164150?utm_campaign=PIC18FQ43&utm_source=GitHub&utm_medium=embeddedLink&utm_term=&utm_content=pic18f57q43-dma-adc-to-uart-part1-MMTCha) to transfer an Analog to Digital (ADC) conversion to a UART TX buffer without writing **any lines of code and zero CPU utilization** using DMA.
+As noted before - this is part 1 of 2 of an example showing how to set up [Direct Memory Access (DMA)](https://www.microchip.com/design-centers/8-bit/peripherals/core-independent/direct-memory-access?utm_campaign=PIC18FQ43&utm_source=GitHub&utm_medium=embeddedLink&utm_term=&utm_content=pic18f57q43-dma-adc-to-uart-part1-MMTCha) using the [Microchip Code Configurator (MCC)](https://www.microchip.com/mplab/mplab-code-configurator?utm_campaign=PIC18FQ43&utm_source=GitHub&utm_medium=embeddedLink&utm_term=&utm_content=pic18f57q43-dma-adc-to-uart-part1-MMTCha) on the [PIC18F57Q43 Curiosity Nano](https://www.microchip.com/Developmenttools/ProductDetails/DM164150?utm_campaign=PIC18FQ43&utm_source=GitHub&utm_medium=embeddedLink&utm_term=&utm_content=pic18f57q43-dma-adc-to-uart-part1-MMTCha) to transfer an Analog to Digital (ADC) conversion to a UART TX buffer without writing **any lines of code and zero CPU utilization** using DMAgit s.
 
 More generally, the technique detailed below shows the process of how one can:
 - Use the DMA GUI provided in MCC
@@ -154,16 +154,16 @@ The goal here is to exemplify the usage of the GUI provided by MCC that will gen
 ![](images/pin-manager-gridview-configure.jpg)
 
 7. In the **DMA Manager** window
-
-![](images/config-dma-part1-1.jpg)
-
-![](images/config-dma-part1-2.jpg)
+<br>
+![](images/config-dma-part1-1.jpg)<br>
+<br>
+![](images/config-dma-part1-2.jpg)<br>
 
 **Zoomed in pictures and additional table below are included for clarity**
+<br>
+![](images/zoom-config-dma-part1-1.jpg)<br>
 
-![](images/zoom-config-dma-part1-1.jpg)
-
-![](images/zoom-config-dma-part1-2.jpg)
+![](images/zoom-config-dma-part1-2.jpg)<br>
 
 |     | Module | Region | SFR    | VarName | VarSize | Address | Mode      | Message Size | Start Trigger | Abort Trigger |
 |-----|--------|--------|--------|---------|---------|---------|-----------|--------------|---------------|---------------|
