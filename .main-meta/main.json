@@ -3,7 +3,7 @@
     "category": "com.microchip.ide.project",
     "content": {
         "metaDataVersion": "1.1.0",
-        "name": "com.microchip.mcu8.mplabx.pic18f57q43-dma-adc-to-uart-part1.",
+        "name": "com.microchip.mcu8.mplabx.pic18f57q43-dma-adc-to-uart-part1",
         "version": "1.0.2",
         "displayName": "Reading ADC Result to UART with DMA",
         "projectName": "pic18f57q43-dma-adc-to-uart-part1",
@@ -47,7 +47,7 @@
             ],
             [
                 "Peripherals", "ADC"
-            ]               			
+            ]
         ],
         "peripherals": [
             "DMA","UART", "ADC"
@@ -56,7 +56,7 @@
             "Core Independent",
             "PIC18",
             "MCC",
-            "Low Power"			
+            "Low Power"
         ],
 		"additionalData": {
 			"longDescription": {
