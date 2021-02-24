@@ -1,8 +1,8 @@
-[![MCHP](https://cldup.com/U0qhLwBijF.png)](https://www.microchip.com)
+[![MCHP](./images/microchip.png)](https://www.microchip.com)
 
 
 
-# Direct Memory Access on PIC MCUs [Part 1]: 
+# Direct Memory Access on PIC MCUs [Part 1]:
 This is **part 1 of 2** of an example showing how to set up [Direct Memory Access (DMA)](https://www.microchip.com/design-centers/8-bit/peripherals/core-independent/direct-memory-access?utm_campaign=PIC18FQ43&utm_source=GitHub&utm_medium=embeddedLink&utm_term=&utm_content=pic18f57q43-dma-adc-to-uart-part1-MMTCha) using the [Microchip Code Configurator (MCC)](https://www.microchip.com/Developmenttools/ProductDetails/DM164150?utm_campaign=PIC18FQ43&utm_source=GitHub&utm_medium=embeddedLink&utm_term=&utm_content=pic18f57q43-dma-adc-to-uart-part1-MMTCha) on the [PIC18F57Q43 Curiosity Nano](https://www.microchip.com/design-centers/8-bit/pic-mcus/device-selection/pic18f-q10-product-family?utm_campaign=PIC18FQ43&utm_source=GitHub&utm_medium=embeddedLink&utm_term=&utm_content=pic18f57q43-dma-adc-to-uart-part1-MMTCha) to transfer an Analog to Digital (ADC) conversion to a UART TX buffer with **zero lines of code and zero CPU utilization** using DMA.
 
 
@@ -26,7 +26,7 @@ This is **part 1 of 2** of an example showing how to set up [Direct Memory Acces
 
 This example is extendable to the entire PIC18 Q43 family, as well as other 8-bit PIC devices with the DMA feature (ex. PIC18F K42).
 
-The Timer (TMR0), Analog to Digital Converter with Computation (ADCC), and Universal Asynchronous Receiver Transmitter (UART3) and DMA on-chip peripherals are all used in this project (part1). 
+The Timer (TMR0), Analog to Digital Converter with Computation (ADCC), and Universal Asynchronous Receiver Transmitter (UART3) and DMA on-chip peripherals are all used in this project (part1).
 
 **This example is covered in a video format** [**linked here**](https://www.youtube.com/watch?v=Wz7gt11gpSw&t=1s).
 
@@ -38,7 +38,7 @@ The Timer (TMR0), Analog to Digital Converter with Computation (ADCC), and Unive
   - [TB3242: Configuring the DMA Peripheral](https://ww1.microchip.com/downloads/en/Appnotes/90003242A.pdf)
   - [TB3164: Direct Memory Access on 8-bit PIC® Microcontrollers](http://ww1.microchip.com/downloads/en/AppNotes/TB3164-Direct%20Memory-Access-on-8-bit-PIC-MCU-DS90003164B.pdf)
 - **Application Notes** - Real-world use-cases
-  - [AN3312: Arbitrary Waveform Generator Using DAC and DMA](https://www.microchip.com/00003312) 
+  - [AN3312: Arbitrary Waveform Generator Using DAC and DMA](https://www.microchip.com/00003312)
   - [AN3382: ADCC Context Switching Using DMA](https://microchip.com/00003382)
   - [AN3398: Building Hardware State Machines with CIPs](https://www.microchip.com/00003398)
 
@@ -102,7 +102,7 @@ The goal here is to exemplify the usage of the GUI provided by MCC that will gen
    1. Select **PIC18F57Q43** as your device
    2. Pro-tip: quickly filter for devices by inputting last 3-4 characters of the device and selecting from the drop-down list (e.g. Q43).
    3.  Hit **Next>**
-5.  In **Select Tool (Optional)** window 
+5.  In **Select Tool (Optional)** window
     1.  If device is connected – select Microchip Kits -> PIC18F57Q43 Curiosity Nano (PKOB nano)
     2.  If not, you can do this later when programming the device.
     3.  Hit **Next>**
@@ -110,7 +110,7 @@ The goal here is to exemplify the usage of the GUI provided by MCC that will gen
     1.  Select XC8 (v2.10)
     2.  Hit **Finish**
 7.  Open MCC by clicking the icon in the toolbar ![](images/open_mcc_icon.png)
-   
+
 ### Configure MCC
 1. In **System Module** window
    1. Set **Oscillator Select** to **HFINTOSC**
@@ -143,14 +143,14 @@ The goal here is to exemplify the usage of the GUI provided by MCC that will gen
 
 5. In the **UART** window/tab
    1. Set **Baud Rate** to **9600**
-   
+
 ![](images/configure-uart3.jpg)
 
 6. In the **Pin Manager: Grid View** window
    1. UART3 TX3 --> A3
    2. UAR3 RX3 --> A4 (not needed necessarily since we are just transmitting)
    3. ADCC ANx --> A0
-   
+
 ![](images/pin-manager-gridview-configure.jpg)
 
 7. In the **DMA Manager** window<br>
@@ -168,9 +168,9 @@ The goal here is to exemplify the usage of the GUI provided by MCC that will gen
 |     | Module | Region | SFR    | VarName | VarSize | Address | Mode      | Message Size | Start Trigger | Abort Trigger |
 |-----|--------|--------|--------|---------|---------|---------|-----------|--------------|---------------|---------------|
 | Src | ADCC   | SFR    | ADRESL | -       | -       | -       | increment | 2            | U3TX          | None          |
-| Dst | UART3  | SFR    | U3TXB  | -       | -       | -       | unchanged | 1            | U3TX          | None          |	
+| Dst | UART3  | SFR    | U3TXB  | -       | -       | -       | unchanged | 1            | U3TX          | None          |
 
-1. Enable **DMA Channel1** 
+1. Enable **DMA Channel1**
    1. What we just did:
       1. **ADCC** is the **source module** of the DMA channel
       2. **ADRESL** is the **SFR region** that we want data to be sourced from
