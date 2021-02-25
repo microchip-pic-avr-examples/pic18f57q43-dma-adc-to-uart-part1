@@ -9,7 +9,7 @@
         "projectName": "pic18f57q43-dma-adc-to-uart-part1-mplab",
         "shortDescription": "Tutorial and code example for Direct Memory Access (DMA) on PIC MCUs in MCC",
         "ide": {
-            "name": "MPLABX",
+            "name": "MPLAB X",
             "semverRange": ">=5.30.0"
         },
         "compiler": [
