@@ -16,8 +16,8 @@ pipeline {
 	
 	environment {
 		GITHUB_OWNER = 'microchip-pic-avr-examples'	
-		GITHUB_URL ='https://github.com/microchip-pic-avr-examples/pic18f56q71-dual-op-amp-demo'
-		BITBUCKET_URL = 'https://bitbucket.microchip.com/scm/ebe/pic18f56q71-dual-op-amp-demo.git'
+		GITHUB_URL ='https://github.com/microchip-pic-avr-examples/pic18f57q43-dma-adc-to-uart-part1'
+		BITBUCKET_URL = 'https://bitbucket.microchip.com/scm/ebe/pic18f57q43-dma-adc-to-uart-part1.git'
 		SEMVER_REGEX = '^(0|[1-9]\\d*)+\\.(0|[1-9]\\d*)+\\.(0|[1-9]\\d*)+$'
 		ARTIFACTORY_SERVER = 'https://artifacts.microchip.com:7999/artifactory'
 	}	

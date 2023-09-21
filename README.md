@@ -131,7 +131,7 @@ The goal here is to exemplify the usage of the GUI provided by MCC that will gen
    4. **What we just did** – configured the TMR0 to overflow every ~50ms. You can mess around with the clock source, system clock, and post/pre-scalars to change the % error or the range of acceptable inputs to for the timer period.
 
 
-![](images/configure-tmr0.jpg)
+![](images/tmr0_easyview.png)
 
 4. In **ADCC** window/tab
    1. Set **Clock Source** to **FRC**
@@ -139,23 +139,23 @@ The goal here is to exemplify the usage of the GUI provided by MCC that will gen
    3. **What we just did** – changed the clock source to the internal ADC RC oscillator circuit (i.e. FRC), and set up the ADC to get a conversion every time a rising edge is detected from TMR0.
 
 
-![](images/configure-adcc0.jpg)
+![](images/adcc_setup.png)
 
 5. In the **UART** window/tab
    1. Set **Baud Rate** to **9600**
 
-![](images/configure-uart3.jpg)
+![](images/uart3_setup.png)
 
 6. In the **Pin Manager: Grid View** window
    1. UART3 TX3 --> A3
    2. UAR3 RX3 --> A4 (not needed necessarily since we are just transmitting)
    3. ADCC ANx --> A0
 
-![](images/pin-manager-gridview-configure.jpg)
+![](images/pin_grid_view.png)
 
 7. In the **DMA Manager** window<br>
 
-![](images/config-dma-part1-1.JPG) <br>
+![](images/dma1_easyview.png) <br>
 
 ![](images/config-dma-part1-2.JPG) <br>
 

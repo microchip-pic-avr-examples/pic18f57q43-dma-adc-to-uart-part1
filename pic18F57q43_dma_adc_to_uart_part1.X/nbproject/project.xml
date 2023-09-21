@@ -3,23 +3,15 @@
     <type>com.microchip.mplab.nbide.embedded.makeproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
-            <name>pic18f57q43-dma-adc-to-uart-part1</name>
-            <creation-uuid>f636db92-338f-4906-b311-51eb113c6bf2</creation-uuid>
+            <name>pic18F57q43_dma_adc_to_uart_part1</name>
+            <creation-uuid>65487bd7-80b4-4cac-9f89-421b5db049b5</creation-uuid>
             <make-project-type>0</make-project-type>
-            <c-extensions>c</c-extensions>
-            <cpp-extensions/>
-            <header-extensions>h</header-extensions>
-            <asminc-extensions/>
             <sourceEncoding>ISO-8859-1</sourceEncoding>
             <make-dep-projects/>
             <sourceRootList/>
             <confList>
                 <confElem>
-                    <name>free</name>
-                    <type>2</type>
-                </confElem>
-                <confElem>
-                    <name>pro</name>
+                    <name>default</name>
                     <type>2</type>
                 </confElem>
             </confList>
