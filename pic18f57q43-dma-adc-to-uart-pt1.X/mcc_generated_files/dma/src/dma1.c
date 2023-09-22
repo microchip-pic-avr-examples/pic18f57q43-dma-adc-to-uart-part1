@@ -49,10 +49,10 @@ void DMA1_Initialize(void)
     DMASELECT = 0x0;
     //Source Address : (uint24_t) &ADRESL
     DMAnSSA = (uint24_t) &ADRESL;
-    //Destination Address : (uint16_t) &U1TXB
-    DMAnDSA = (uint16_t) &U1TXB;
-    //SSTP not cleared; SMODE unchanged; SMR SFR; DSTP not cleared; DMODE unchanged; 
-    DMAnCON1 = 0x0;
+    //Destination Address : (uint16_t) &U3TXB
+    DMAnDSA = (uint16_t) &U3TXB;
+    //SSTP not cleared; SMODE incremented; SMR SFR; DSTP not cleared; DMODE unchanged; 
+    DMAnCON1 = 0x2;
     //Source Message Size : 2
     DMAnSSZ = 2;
     //Destination Message Size : 1
@@ -76,8 +76,8 @@ void DMA1_Initialize(void)
     PIE2bits.DMA1AIE = 0;
     PIE2bits.DMA1ORIE = 0;
 	
-    //AIRQEN disabled; DGO not in progress; SIRQEN disabled; EN enabled; 
-    DMAnCON0 = 0x80;
+    //AIRQEN disabled; DGO not in progress; SIRQEN enabled; EN enabled; 
+    DMAnCON0 = 0xC0;
 	 
 }
 

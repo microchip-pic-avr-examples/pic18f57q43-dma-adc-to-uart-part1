@@ -47,7 +47,7 @@ All software used in this example is listed here:
 - [MPLAB® X IDE 6.15](https://www.microchip.com/mplab/mplab-x-ide?utm_campaign=PIC18FQ43&utm_source=GitHub&utm_medium=embeddedLink&utm_term=&utm_content=pic18f57q43-dma-adc-to-uart-part1-MMTCha) or newer
 - [MPLAB® XC8 2.45](https://www.microchip.com/mplab/compilers?utm_campaign=PIC18FQ43&utm_source=GitHub&utm_medium=embeddedLink&utm_term=&utm_content=pic18f57q43-dma-adc-to-uart-part1-MMTCha) or newer
 - [MPLAB® Code Configurator (MCC) 5.5.7](https://www.microchip.com/mplab/mplab-code-configurator?utm_campaign=PIC18FQ43&utm_source=GitHub&utm_medium=embeddedLink&utm_term=&utm_content=pic18f57q43-dma-adc-to-uart-part1-MMTCha) or newer
-  - [MPLAB® Code Configurator (MCC) Device Libraries PIC10 / PIC12 / PIC16 / PIC18 MCUs](https://www.microchip.com/mplab/mplab-code-configurator?utm_campaign=PIC18FQ43&utm_source=GitHub&utm_medium=embeddedLink&utm_term=&utm_content=pic18f57q43-dma-adc-to-uart-part1-MMTCha)
+  - [MPLAB® Code Configurator (MCC) Device Libraries PIC10 / PIC12 / PIC16 / PIC18 MCUs (5.25.0)](https://www.microchip.com/mplab/mplab-code-configurator?utm_campaign=PIC18FQ43&utm_source=GitHub&utm_medium=embeddedLink&utm_term=&utm_content=pic18f57q43-dma-adc-to-uart-part1-MMTCha) or newer
 - [Microchip PIC18F-Q Series Device Support (1.21.411)](https://packs.download.microchip.com/?utm_campaign=PIC18FQ43&utm_source=GitHub&utm_medium=embeddedLink&utm_term=&utm_content=pic18f57q43-dma-adc-to-uart-part1-MMTCha) or newer
 
 ## Hardware Used
@@ -107,22 +107,29 @@ The goal here is to exemplify the usage of the GUI provided by MCC that will gen
     2.  If not, you can do this later when programming the device.
     3.  Hit **Next>**
 6.  In **Select Compiler** window
-    1.  Select XC8 (v2.10)
+    1.  Select XC8 (v2.45)
     2.  Hit **Finish**
 7.  Open MCC by clicking the icon in the toolbar ![](images/open_mcc_icon.png)
 
 ### Configure MCC
-1. In **System Module** window
-   1. Set **Oscillator Select** to **HFINTOSC**
+1. In the project resources window open the dropdown box for **System** => Clock control tab
+   
+![](images/project_resources_clock_control.png)
 
-![](images/configure_system.jpg)
+   1. In the clock control window, easy view tab set **Oscillator Select** to **HFINTOSC**
+
+![](images/clock_control.png)
 
 2. Under **Device Resources** in left-hand pane
-   1. Open the **Peripherals** drop-down
-   2. Double-click the (PIC10/PIC12/…) instance of the **ADCC [PIC10/…]**, **TMR0** and **UART3** peripherals to add them your project.
+   1. Open the **Drivers** drop-down
+   2. Click the green plus sign next to **ADCC**, **DMA**, **TMR0** and **UART3** peripherals to add them your project.
 
 
-![](images/add-peripherals-to-project-resources.jpg)
+![](images/device_resources.png)
+
+   After adding drivers for ADCC, DMA1, TMR0, and UART3. The project resources window should look like below.
+
+![](images/project_resources.png)
 
 3. In **TMR0** window/tab
    1. Select **FOSC/4** for **Clock Source**
@@ -134,7 +141,7 @@ The goal here is to exemplify the usage of the GUI provided by MCC that will gen
 ![](images/tmr0_easyview.png)
 
 4. In **ADCC** window/tab
-   1. Set **Clock Source** to **FRC**
+   1. Set **Clock Source** to **ADCRC**
    2. Set **Auto-Conversion Trigger** to **TMR0**
    3. **What we just did** – changed the clock source to the internal ADC RC oscillator circuit (i.e. FRC), and set up the ADC to get a conversion every time a rising edge is detected from TMR0.
 
@@ -156,14 +163,6 @@ The goal here is to exemplify the usage of the GUI provided by MCC that will gen
 7. In the **DMA Manager** window<br>
 
 ![](images/dma1_easyview.png) <br>
-
-![](images/config-dma-part1-2.JPG) <br>
-
-**Zoomed in pictures and additional table below are included for clarity**<br>
-
-![](images/zoom-config-dma-part1-1.JPG) <br>
-
-![](images/zoom-config-dma-part1-2.JPG) <br>
 
 |     | Module | Region | SFR    | VarName | VarSize | Address | Mode      | Message Size | Start Trigger | Abort Trigger |
 |-----|--------|--------|--------|---------|---------|---------|-----------|--------------|---------------|---------------|
