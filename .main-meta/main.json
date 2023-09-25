@@ -1,10 +1,10 @@
 {
-    "metaDataVersion": "1.3.0",
+    "metaDataVersion": "1.0.0",
     "category": "com.microchip.ide.project",
     "content": {
         "metaDataVersion": "1.3.0",
         "name": "com.microchip.mcu8.mplabx.project.pic18f57q43-dma-adc-to-uart-part1",
-        "version": "1.3.0",
+        "version": "1.0.0",
         "displayName": "Reading ADC Result to UART with DMA",
         "projectName": "pic18f57q43-dma-adc-to-uart-part1",
         "shortDescription": "Tutorial and code example for Direct Memory Access (DMA) on PIC MCUs in MCC",
