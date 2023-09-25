@@ -2,8 +2,8 @@
 
 
 
-# Direct Memory Access on PIC MCUs [Part 1]:
-This is **part 1 of 2** of an example showing how to set up [Direct Memory Access (DMA)](https://www.microchip.com/design-centers/8-bit/peripherals/core-independent/direct-memory-access?utm_campaign=PIC18FQ43&utm_source=GitHub&utm_medium=embeddedLink&utm_term=&utm_content=pic18f57q43-dma-adc-to-uart-part1-MMTCha) using the [Microchip Code Configurator (MCC)](https://www.microchip.com/Developmenttools/ProductDetails/DM164150?utm_campaign=PIC18FQ43&utm_source=GitHub&utm_medium=embeddedLink&utm_term=&utm_content=pic18f57q43-dma-adc-to-uart-part1-MMTCha) on the [PIC18F57Q43 Curiosity Nano](https://www.microchip.com/design-centers/8-bit/pic-mcus/device-selection/pic18f-q10-product-family?utm_campaign=PIC18FQ43&utm_source=GitHub&utm_medium=embeddedLink&utm_term=&utm_content=pic18f57q43-dma-adc-to-uart-part1-MMTCha) to transfer an Analog to Digital (ADC) conversion to a UART TX buffer with **zero lines of code and zero CPU utilization** using DMA.
+# Direct Memory Access (DMA) on PIC MCUs [Part one]:
+This is the first part an example showing how to set up [Direct Memory Access (DMA)](https://www.microchip.com/design-centers/8-bit/peripherals/core-independent/direct-memory-access?utm_campaign=PIC18FQ43&utm_source=GitHub&utm_medium=embeddedLink&utm_term=&utm_content=pic18f57q43-dma-adc-to-uart-part1-MMTCha) using the [Microchip Code Configurator (MCC)](https://www.microchip.com/Developmenttools/ProductDetails/DM164150?utm_campaign=PIC18FQ43&utm_source=GitHub&utm_medium=embeddedLink&utm_term=&utm_content=pic18f57q43-dma-adc-to-uart-part1-MMTCha) on the [PIC18F57Q43 Curiosity Nano](https://www.microchip.com/design-centers/8-bit/pic-mcus/device-selection/pic18f-q10-product-family?utm_campaign=PIC18FQ43&utm_source=GitHub&utm_medium=embeddedLink&utm_term=&utm_content=pic18f57q43-dma-adc-to-uart-part1-MMTCha) to transfer an Analog to Digital (ADC) conversion to a UART TX buffer with zero lines of code and zero CPU utilization using DMA.
 
 
 ![](images/part1-gif.gif)
@@ -24,7 +24,7 @@ This is **part 1 of 2** of an example showing how to set up [Direct Memory Acces
   - [Walkthrough](#walkthrough)
 
 
-This example is extendable to the entire PIC18 Q43 family, as well as other 8-bit PIC devices with the DMA feature (ex. PIC18F K42).
+This example is extendable to the entire PIC18 Q43 family, and other 8-bit PIC devices with the DMA feature, like PIC18F K42.
 
 The Timer (TMR0), Analog to Digital Converter with Computation (ADCC), and Universal Asynchronous Receiver Transmitter (UART3) and DMA on-chip peripherals are all used in this project (part1).
 
@@ -43,21 +43,20 @@ The Timer (TMR0), Analog to Digital Converter with Computation (ADCC), and Unive
   - [AN3398: Building Hardware State Machines with CIPs](https://www.microchip.com/00003398)
 
 ## Software Used
-All software used in this example is listed here:
 - [MPLAB® X IDE 6.15](https://www.microchip.com/mplab/mplab-x-ide?utm_campaign=PIC18FQ43&utm_source=GitHub&utm_medium=embeddedLink&utm_term=&utm_content=pic18f57q43-dma-adc-to-uart-part1-MMTCha) or newer
 - [MPLAB® XC8 2.45](https://www.microchip.com/mplab/compilers?utm_campaign=PIC18FQ43&utm_source=GitHub&utm_medium=embeddedLink&utm_term=&utm_content=pic18f57q43-dma-adc-to-uart-part1-MMTCha) or newer
 - [MPLAB® Code Configurator (MCC) 5.5.7](https://www.microchip.com/mplab/mplab-code-configurator?utm_campaign=PIC18FQ43&utm_source=GitHub&utm_medium=embeddedLink&utm_term=&utm_content=pic18f57q43-dma-adc-to-uart-part1-MMTCha) or newer
-  - [MPLAB® Code Configurator (MCC) Device Libraries PIC10 / PIC12 / PIC16 / PIC18 MCUs (5.25.0)](https://www.microchip.com/mplab/mplab-code-configurator?utm_campaign=PIC18FQ43&utm_source=GitHub&utm_medium=embeddedLink&utm_term=&utm_content=pic18f57q43-dma-adc-to-uart-part1-MMTCha) or newer
+ - [MPLAB® Code Configurator (MCC) Device Libraries PIC10 / PIC12 / PIC16 / PIC18 MCUs (5.25.0)](https://www.microchip.com/mplab/mplab-code-configurator?utm_campaign=PIC18FQ43&utm_source=GitHub&utm_medium=embeddedLink&utm_term=&utm_content=pic18f57q43-dma-adc-to-uart-part1-MMTCha) or newer
 - [Microchip PIC18F-Q Series Device Support (1.21.411)](https://packs.download.microchip.com/?utm_campaign=PIC18FQ43&utm_source=GitHub&utm_medium=embeddedLink&utm_term=&utm_content=pic18f57q43-dma-adc-to-uart-part1-MMTCha) or newer
 
 ## Hardware Used
-- PIC18F57Q43 Curiosity Nano [(DM164150)](https://www.microchip.com/Developmenttools/ProductDetails/DM164150?utm_campaign=PIC18FQ43&utm_source=GitHub&utm_medium=embeddedLink&utm_term=&utm_content=pic18f57q43-dma-adc-to-uart-part1-MMTCha)
-  - NOTE: There is second one used in [**part 2**](https://github.com/microchip-pic-avr-examples/pic18f57q43-dma-uart-to-pwm-part2)
+- PIC18F57Q43 Curiosity Nano Evaluation Kit [(DM164150)](https://www.microchip.com/Developmenttools/ProductDetails/DM164150?utm_campaign=PIC18FQ43&utm_source=GitHub&utm_medium=embeddedLink&utm_term=&utm_content=pic18f57q43-dma-adc-to-uart-part1-MMTCha)
+  - NOTE: There is second Curiosity Nano Evaluation Kit used in [**part two**](https://github.com/microchip-pic-avr-examples/pic18f57q43-dma-uart-to-pwm-part2)
 - Potentiometer (x1)
-- **[Optional]** Curiosity Nano Base for Click boards™ [(AC164162)](https://www.microchip.com/Developmenttools/ProductDetails/AC164162?utm_campaign=PIC18FQ43&utm_source=GitHub&utm_medium=embeddedLink&utm_term=&utm_content=pic18f57q43-dma-adc-to-uart-part1-MMTCha) - this was only used in lieu of a breadboard.
+-  Curiosity Nano Base for Click boards™ [(AC164162)](https://www.microchip.com/Developmenttools/ProductDetails/AC164162?utm_campaign=PIC18FQ43&utm_source=GitHub&utm_medium=embeddedLink&utm_term=&utm_content=pic18f57q43-dma-adc-to-uart-part1-MMTCha) - **[Optional]** this was only used in lieu of a breadboard.
 
 ## Setup
-The hardware is setup as shown more closely [in this video](https://www.youtube.com/watch?v=Wz7gt11gpSw&t=1s). Below is a diagram where of the specific pins I used. You'll notice the Curiosity Nano Baseboard for clicks is missing from this diagram as they were really only used as breadboard-alternatives in this case.
+The hardware is setup as shown [in this video](https://www.youtube.com/watch?v=Wz7gt11gpSw&t=1s). All the specific pins are present in the diagram below. The Curiosity Nano Baseboard for clicks are no present in the diagram, since they were only used as breadboard-alternatives.
 
 ![](images/hardware_setup.jpg)
 
@@ -94,73 +93,73 @@ The goal here is to exemplify the usage of the GUI provided by MCC that will gen
 1. Open the MPLAB X IDE
 2. Create new project by clicking the icon: ![](images/new_project_icon.png)   
    1. Alternatively: file >> New Project
-3. In **Choose Project** window
+3. In the **Choose Project** window:
    1. Select **Microchip Embedded** category
    2. Select **Standalone Project**
-   3. Hit **Next>**
-4. In **Select Device** window
+   3. Click **Next>**
+4. In the **Select Device** window:
    1. Select **PIC18F57Q43** as your device
-   2. Pro-tip: quickly filter for devices by inputting last 3-4 characters of the device and selecting from the drop-down list (e.g. Q43).
-   3.  Hit **Next>**
-5.  In **Select Tool (Optional)** window
-    1.  If device is connected – select Microchip Kits -> PIC18F57Q43 Curiosity Nano (PKOB nano)
-    2.  If not, you can do this later when programming the device.
-    3.  Hit **Next>**
-6.  In **Select Compiler** window
+   2. Pro-tip: Input the last three or four characters of the device, then select the device from the drop-down list (e.g. Q43).
+   3.  Click **Next>**
+5.  In the **Select Tool** window (Optional): 
+    1.  If device is connected, select PIC18F57Q43 Curiosity Nano (PKOB nano)
+    2.  If not, The Curiosity Nano can be selected later on.
+    3.  Click **Next>**
+6.  In the **Select Compiler** window:
     1.  Select XC8 (v2.45)
-    2.  Hit **Finish**
+    2. Click **Finish**
 7.  Open MCC by clicking the icon in the toolbar ![](images/open_mcc_icon.png)
 
 ### Configure MCC
-1. In the project resources window open the dropdown box for **System** => Clock control tab
+1. In the project resources window: check the dropdown box for **System** =>  click clock control.
    
 ![](images/project_resources_clock_control.png)
 
-   1. In the clock control window, easy view tab set **Oscillator Select** to **HFINTOSC**
+   1. In the clock control window: go to the easy view tab, and set **Clock Settings** to **HFINTOSC**
 
 ![](images/clock_control.png)
 
-2. Under **Device Resources** in left-hand pane
+2. Under Device Resources in left-hand pane:
    1. Open the **Drivers** drop-down
    2. Click the green plus sign next to **ADCC**, **DMA**, **TMR0** and **UART3** peripherals to add them your project.
 
 
 ![](images/device_resources.png)
 
-   After adding drivers for ADCC, DMA1, TMR0, and UART3. The project resources window should look like below.
+   After adding drivers for ADCC, DMA1, TMR0, and UART3. The project resources window will look like below.
 
 ![](images/project_resources.png)
 
-3. In **TMR0** window/tab
+3. In the **TMR0** window:
    1. Select **FOSC/4** for **Clock Source**
    2. Set **Clock pre-scaler** to **1:64**
    3. Set **Requested Period** to **50 ms**
-   4. **What we just did** – configured the TMR0 to overflow every ~50ms. You can mess around with the clock source, system clock, and post/pre-scalars to change the % error or the range of acceptable inputs to for the timer period.
+   4. The **TMR0** was configured to overflow every ~50 ms. The user can reconfigure the clock source, system clock, and pre/post-scalars to change the error rate or the range of acceptable inputs for the timer period.
 
 
 ![](images/tmr0_easyview.png)
 
-4. In **ADCC** window/tab
+4. In the **ADCC** window:
    1. Set **Clock Source** to **ADCRC**
    2. Set **Auto-Conversion Trigger** to **TMR0**
-   3. **What we just did** – changed the clock source to the internal ADC RC oscillator circuit (i.e. FRC), and set up the ADC to get a conversion every time a rising edge is detected from TMR0.
+   3. The default setting is changed for the clock source to the internal ADC RC oscillator circuit (i.e. FRC), and set up the ADC to get a conversion every time a rising edge is detected from TMR0.
 
 
 ![](images/adcc_setup.png)
 
-5. In the **UART** window/tab
-   1. Set **Baud Rate** to **9600**
+5. In the **UART** window:
+   1. Set Baud Rate to 9600.
 
 ![](images/uart3_setup.png)
 
-6. In the **Pin Manager: Grid View** window
+6. In the Pin Manager: Grid View window:
    1. UART3 TX3 --> A3
-   2. UAR3 RX3 --> A4 (not needed necessarily since we are just transmitting)
+   2. UAR3 RX3 --> A4 (not required for transmitting)
    3. ADCC ANx --> A0
 
 ![](images/pin_grid_view.png)
 
-7. In the **DMA Manager** window<br>
+7. In the **DMA Manager** window:<br>
 
 ![](images/dma1_easyview.png) <br>
 
@@ -170,20 +169,19 @@ The goal here is to exemplify the usage of the GUI provided by MCC that will gen
 | Dst | UART3  | SFR    | U3TXB  | -       | -       | -       | unchanged | 1            | U3TX          | None          |
 
 1. Enable **DMA Channel1**
-   1. What we just did:
-      1. **ADCC** is the **source module** of the DMA channel
-      2. **ADRESL** is the **SFR region** that we want data to be sourced from
-      3. **Mode** must be **incremented** so that we can get the value from ADRESH, which is directly above ADRESL according to the SFR Memory Map.
-      4. **Message size** is basically **how many bytes** are coming from the source module. The ADC result register is a *16-bit register*, so the **message size is 2-bytes**.
-      5. Similarly, the UART TX Buffer is 1-byte, so we need to indicate that it can only handle one byte at a time. (i.e. message size = 1)
-      6. Set the DMA **start trigger** to fire every time TX Buffer is empty (**U3TXB**). At this point you might wonder – why don’t I just set the trigger for every time there is an ADC conversion? You are certainly given the flexibility to do so by setting Start Trigger to AD. I encourage you to try and see what happens.
-         1. **Spoiler Alert:** In many cases you will find that there is garbage data being transmitted from the UART. The reason for this is that depending on the relative speed of the UART, the DMA might be overwriting the buffer before the bits are shifting out. The DMA has no knowledge of this information, it’s simply a messenger.
-2. Hit **Generate Project** and
-3.  Hit **Program the device**![](images/program-device-icon.png)
+   1. **ADCC** is the **source module** of the DMA channel
+   2. **ADRESL** is the **SFR region** that we want data to be sourced from
+   3. **Mode** must be **incremented** to get the value from ADRESH, which is directly above ADRESL according to the SFR Memory Map.
+   4. **Message size** is basically **how many bytes** are coming from the source module. The ADC result register is a *16-bit register*, so the **message size is 2-bytes**.
+   5. Similarly, the UART TX Buffer is 1-byte, so we need to indicate that it can only handle one byte at a time. (i.e. message size = 1)
+   6. Set the DMA **start trigger** to fire every time TX Buffer is empty (**U3TXB**). At this point you might wonder – why don’t I just set the trigger for every time there is an ADC conversion? You are certainly given the flexibility to do so by setting Start Trigger to AD. I encourage you to try and see what happens.
+      1. **Note!** In many cases you will find that there is garbage data being transmitted from the UART. The reason for this is that depending on the relative speed of the UART, the DMA might be overwriting the buffer before the bits are shifting out. The DMA has no knowledge of this information, it’s a messenger.
+2. Click **Generate Project** and
+3. Click **Program the device**![](images/program-device-icon.png)
 
 ## Conclusion:
 
-You have finished part 1, now you can either check out the results by using a logic analyzer, oscilloscope, or even a serial terminal like the Data Visualizer plugin or standalone application. Next, [**check out part 2**](https://github.com/microchip-pic-avr-examples/pic18f57q43-dma-uart-to-pwm-part2) to complete the application.
+After finishing part 1, the user can either check out the results by using a logic analyzer, oscilloscope, or even a serial terminal like the Data Visualizer plugin or standalone application. Next, [**check out part 2**](https://github.com/microchip-pic-avr-examples/pic18f57q43-dma-uart-to-pwm-part2) to complete the application.
 
 ![](images\system-architecture.JPG)
 
